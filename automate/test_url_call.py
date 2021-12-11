@@ -44,7 +44,7 @@ while flag:
         by=By.ID, value="ContentPlaceHolder1_SelectTime1_txtAppDate"
     )
 
-    time.sleep(3)
+    time.sleep(0.5)
 
     date = data_selector.get_property("value")
     print(date)
@@ -67,3 +67,9 @@ while flag:
         # driver.execute_script("arguments[0].scrollIntoView(true);",elem2)
         elem.click()
         time.sleep(0.5)
+
+
+
+
+
+
