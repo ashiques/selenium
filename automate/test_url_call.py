@@ -3,6 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 import time
+from datetime import datetime
 
 ser = Service("/Users/ashique/projects/python/selenium/chromedriver")
 op = webdriver.ChromeOptions()
@@ -13,19 +14,23 @@ driver.get(
 
 elem = driver.find_element(by=By.ID, value="ContentPlaceHolder1_txtHAPID")
 elem.clear()
-elem.send_keys("26696764")
+# Hap Id
+elem.send_keys("2XXXXXXXXX")
 
 first_name = driver.find_element(by=By.ID, value="ContentPlaceHolder1_txtFirstName")
 first_name.clear()
-first_name.send_keys("Sajani")
+# First Name
+first_name.send_keys("XXXXX")
 
 last_name = driver.find_element(by=By.ID, value="ContentPlaceHolder1_txtSurname")
 last_name.clear()
-last_name.send_keys("Narayanankutty")
+# Last Name
+last_name.send_keys("XXXXXXXXX")
 
 dob = driver.find_element(by=By.ID, value="ContentPlaceHolder1_txtDOB")
 dob.clear()
-dob.send_keys("3/03/1993")
+# DOB in DD/MM/YYYY
+dob.send_keys("DD/MM/YYYY")
 
 elem.send_keys(Keys.RETURN)
 
@@ -48,11 +53,13 @@ while flag:
 
     date = data_selector.get_property("value")
     print(date)
-    month = date.split("/")[1]
-    day = date.split("/")[0]
-    year = date.split("/")[2]
 
-    if int(month) == 12 and int(year) == 2021 and int(day) < 19:
+    picker_date = datetime.strptime(date, "%d/%m/%Y")
+    last_appointment_date = datetime.strptime("09/01/2022", "%d/%m/%Y")
+    current_date = datetime.now()
+
+    if current_date < picker_date < last_appointment_date:
+        # code will break out of loop when the picker date (date inside the ui) is between the current date and last recieved appointment date
         flag = False
         print("Click Fast!!!!")
     else:
@@ -67,9 +74,3 @@ while flag:
         # driver.execute_script("arguments[0].scrollIntoView(true);",elem2)
         elem.click()
         time.sleep(0.5)
-
-
-
-
-
-
