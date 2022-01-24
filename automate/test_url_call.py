@@ -15,22 +15,22 @@ driver.get(
 elem = driver.find_element(by=By.ID, value="ContentPlaceHolder1_txtHAPID")
 elem.clear()
 # Hap Id
-elem.send_keys("2XXXXXXXXX")
+elem.send_keys("26906755")
 
 first_name = driver.find_element(by=By.ID, value="ContentPlaceHolder1_txtFirstName")
 first_name.clear()
 # First Name
-first_name.send_keys("XXXXX")
+first_name.send_keys("Roshan lal")
 
 last_name = driver.find_element(by=By.ID, value="ContentPlaceHolder1_txtSurname")
 last_name.clear()
 # Last Name
-last_name.send_keys("XXXXXXXXX")
+last_name.send_keys("kumawat")
 
 dob = driver.find_element(by=By.ID, value="ContentPlaceHolder1_txtDOB")
 dob.clear()
 # DOB in DD/MM/YYYY
-dob.send_keys("DD/MM/YYYY")
+dob.send_keys("20/08/1995")
 
 elem.send_keys(Keys.RETURN)
 
@@ -55,7 +55,7 @@ while flag:
     print(date)
 
     picker_date = datetime.strptime(date, "%d/%m/%Y")
-    last_appointment_date = datetime.strptime("09/01/2022", "%d/%m/%Y")
+    last_appointment_date = datetime.strptime("10/05/2022", "%d/%m/%Y")
     current_date = datetime.now()
 
     if current_date < picker_date < last_appointment_date:
@@ -65,7 +65,8 @@ while flag:
     else:
         elem = driver.find_element(
             by=By.XPATH,
-            value='//*[@id="form1"]/div[3]/div[2]/div/div[2]/div[7]/button[2]',
+            value='/html/body/form/div[3]/div[2]/div/div[2]/div[6]/button[2]',
+
         )
 
         # scroll down functionality
