@@ -15,22 +15,22 @@ driver.get(
 elem = driver.find_element(by=By.ID, value="ContentPlaceHolder1_txtHAPID")
 elem.clear()
 # Hap Id
-elem.send_keys("26906755")
+elem.send_keys("XXXXXXXXXXX")
 
 first_name = driver.find_element(by=By.ID, value="ContentPlaceHolder1_txtFirstName")
 first_name.clear()
 # First Name
-first_name.send_keys("Roshan lal")
+first_name.send_keys("XXXXXXXXXXXX")
 
 last_name = driver.find_element(by=By.ID, value="ContentPlaceHolder1_txtSurname")
 last_name.clear()
 # Last Name
-last_name.send_keys("kumawat")
+last_name.send_keys("XXXXXXXX")
 
 dob = driver.find_element(by=By.ID, value="ContentPlaceHolder1_txtDOB")
 dob.clear()
 # DOB in DD/MM/YYYY
-dob.send_keys("20/08/1995")
+dob.send_keys("XXXXXXXXXXXX")
 
 elem.send_keys(Keys.RETURN)
 
@@ -55,6 +55,7 @@ while flag:
     print(date)
 
     picker_date = datetime.strptime(date, "%d/%m/%Y")
+    # Date of the last successful appointment
     last_appointment_date = datetime.strptime("10/05/2022", "%d/%m/%Y")
     current_date = datetime.now()
 
@@ -62,6 +63,7 @@ while flag:
         # code will break out of loop when the picker date (date inside the ui) is between the current date and last recieved appointment date
         flag = False
         print("Click Fast!!!!")
+        driver.get('https://www.youtube.com/watch?v=hT_nvWreIhg')
     else:
         elem = driver.find_element(
             by=By.XPATH,
